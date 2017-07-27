@@ -615,6 +615,9 @@ class Request implements \ArrayAccess, \Countable, IRequest {
 			$uri = $this->getScriptName() . substr($uri, strlen($this->server['SCRIPT_NAME']));
 		} else {
 			$components = parse_url($uri);
+			if ($components === false) {
+				$components = parse_url("http://localhost$uri");
+			}
 			$uri = $components['path'];
 			if (isset($components['query'])) {
 				$uri .= '?'.$components['query'];
