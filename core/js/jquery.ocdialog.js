@@ -1,4 +1,4 @@
-(function($) {
+jQuery(document).ready(function($){
 	$.widget('oc.ocdialog', {
 		options: {
 			width: 'auto',
